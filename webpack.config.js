@@ -10,5 +10,9 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: resolve('dist')
+  },
+  devServer: {
+    static: resolve('dist'),
+    port: 8000
   }
 }
