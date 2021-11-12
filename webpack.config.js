@@ -14,7 +14,13 @@ module.exports = {
     main: resolve('src/index.js')
   },
   output: {
-    filename: '[name].js',
+    /**
+     * ## 单独存放js/css/img
+     * 在output的path指定js目录
+     * 在MiniCssExtractPlugin的filenam指定css目录
+     * 在url-loader的options.outputPath指定img目录
+     */
+    filename: 'js/[name].js',
     path: resolve('dist'),
     publicPath: '/'
     /*设定url可以从哪个路径获取path: resolve('dist')所指定的dist这个磁盘目录的内容，
