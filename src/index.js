@@ -8,3 +8,9 @@ const img = new Image()
 img.src = avatar
 document.body.appendChild(img)
 console.log('img=>', avatar)
+const pr = new Promise((res) =>
+  setTimeout(() => {
+    res()
+  })
+)
+pr.then((res) => console.log('res=>', res))

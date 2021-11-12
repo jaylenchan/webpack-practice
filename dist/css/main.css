@@ -2,20 +2,23 @@
   !*** css ./node_modules/_css-loader@6.5.1@css-loader/dist/cjs.js!./node_modules/_postcss-loader@6.2.0@postcss-loader/dist/cjs.js!./src/index.css ***!
   \***************************************************************************************************************************************************/
 #root {
-  background-image: url(/03affd7dcab258a52dd3.png);
-  background-size: cover;
-  color: red;
+  width: 200px;
+  height: 200px;
   font-size: 32px;
   font-weight: 700;
-  height: 200px;
-  width: 200px;
+  color: red;
+  background-size: cover;
+  background-image: url(/03affd7dcab258a52dd3.png);
 }
+
 ::-moz-placeholder {
   color: red;
 }
+
 :-ms-input-placeholder {
   color: red;
 }
+
 ::placeholder {
   color: red;
 }
@@ -23,10 +26,10 @@
 /*!***********************************************************************************************************************************************!*\
   !*** css ./node_modules/_css-loader@6.5.1@css-loader/dist/cjs.js!./node_modules/_sass-loader@12.3.0@sass-loader/dist/cjs.js!./src/index.scss ***!
   \***********************************************************************************************************************************************/
-#root:before {
-  background-color: #d37a0d;
-  content: 'BEFORE';
+#root::before {
   display: block;
-  height: 100px;
+  content: 'BEFORE';
   width: 100px;
-}
+  height: 100px;
+  background-color: #d37a0d; }
+

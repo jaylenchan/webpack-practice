@@ -37,6 +37,18 @@ module.exports = {
   module: {
     rules: [
       /**
+       * 使用'babel-loader'配合选项预设@babel/preset-env来转译ES6、ES7高级语法
+       */
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      /**
        * 为了浏览器的兼容性，有时候，我们必须加入-webkit,-ms,-o,-moz这些前缀
        * Trident内核：代表IE浏览器，前缀:-ms
        * Gecko内核：代表Firefox浏览器，前缀：-moz
@@ -79,7 +91,7 @@ module.exports = {
     })
   ],
   optimization: {
-    minimize: true, //在开发环境下启用 CSS 优化
+    minimize: false, //true为在开发环境下启用 CSS 优化
     minimizer: [
       new TerserPlugin({
         parallel: true // 开启并行打包
