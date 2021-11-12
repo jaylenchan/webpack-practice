@@ -40,6 +40,16 @@ eval("\n\nmodule.exports = function (i) {\n  return i[1];\n};\n\n//# sourceURL=w
 
 /***/ }),
 
+/***/ "./src/avatar.jpeg":
+/*!*************************!*\
+  !*** ./src/avatar.jpeg ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"1b751a1eb765d11b12f9872c307b7717.jpeg\");\n\n//# sourceURL=webpack:///./src/avatar.jpeg?");
+
+/***/ }),
+
 /***/ "./src/index.css":
 /*!***********************!*\
   !*** ./src/index.css ***!
@@ -116,7 +126,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n\nconsole.log('chapter1')\ndocument.write('chapter1:devserver')\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _avatar_jpeg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./avatar.jpeg */ \"./src/avatar.jpeg\");\n\nconsole.log('chapter1')\ndocument.write('chapter1:devserver')\n;\n\nconst img = new Image()\nimg.src = _avatar_jpeg__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\ndocument.body.appendChild(img)\nconsole.log('avatar=>', _avatar_jpeg__WEBPACK_IMPORTED_MODULE_1__[\"default\"])\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
@@ -185,6 +195,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ind
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/dist/";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
