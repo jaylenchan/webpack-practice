@@ -36,6 +36,17 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            enforce: 'pre', //设置匹配js文件时，先走这个loader（这里还有babel-loader，所以要配置这个）
+            include: resolve('src'), //只校验自己写的js
+            exclude: /node_modules/ //不校验node_modules文件
+          }
+        }
+      },
       /**
        * 使用'babel-loader'配合选项预设@babel/preset-env来转译ES6、ES7高级语法
        */
