@@ -44,7 +44,22 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: [
+              [
+                /**
+                 * Babel 对一些公共方法使用了非常小的辅助代码，比如 _extend。默认情况下会被添加到每一个需要它的文件中
+                 * 所以安装@babel/plugin-transform-runtime,@babel/runtime来避免重复引入
+                 */
+                '@babel/plugin-transform-runtime',
+                {
+                  corejs: false,
+                  helpers: true,
+                  regenerator: true,
+                  useESModules: true
+                }
+              ]
+            ]
           }
         }
       },
