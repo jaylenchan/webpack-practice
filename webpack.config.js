@@ -12,11 +12,16 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: resolve('dist'),
-    publicPath: '/dist/' // publichPath这里指定的是一个非本地的服务器要部署资源的地方
-    // 比如：127.0.0.1:5000/ 部署在这个服务器路径的/dist/就是相等于于底下在devserver指定的static:resolve('dist')的作用
+    publicPath: '/'
+    /*设定url可以从哪个路径获取path: resolve('dist')所指定的dist这个磁盘目录的内容，
+    如果跟devServer.static为directory提供的路径重名，直接覆盖掉static的，会让static的directory没法访问了*/
   },
   devServer: {
-    static: resolve('dist'), // static这里直接指定了server访问127.0.0.1:8000/的磁盘
+    static: {
+      //其实这个定义不要也行！！！因为其实是output的publicPath决定dist的访问
+      directory: resolve('img'), //告诉服务器从哪里提供内容
+      publicPath: '/abc/' //告诉服务器在哪个 URL 上提供 static.directory 的内容
+    },
     port: 8000
   },
   module: {
@@ -27,7 +32,15 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|jpeg|gif|svg|webep)$/,
-        use: 'file-loader'
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'img/', // 放到output的path目录下的什么地方，这里就是放到output的path（这里是dist）下的img下
+            publicPath: '/img', // 指定图片的访问url，必须以output的publicPath为基准，最起码output中的publicPath有的这也要有
+            limit: 7000 // 小于7k的图片全部变base64内嵌
+          }
+        }
       }
     ]
   },

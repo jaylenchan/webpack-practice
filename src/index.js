@@ -6,4 +6,4 @@ import avatar from './avatar.jpeg'
 const img = new Image()
 img.src = avatar
 document.body.appendChild(img)
-console.log('avatar=>', avatar)
+console.log('img=>', avatar)
