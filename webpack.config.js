@@ -3,6 +3,7 @@ const path = require('path')
 const resolve = (dir) => path.resolve(__dirname, dir)
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: {
@@ -31,6 +32,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: resolve('public/index.html'),
       filename: 'index.html',
