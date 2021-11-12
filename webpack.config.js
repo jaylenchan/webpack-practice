@@ -1,17 +1,17 @@
-const path = require('path')
+const path = require('path');
 
-const resolve = (dir) => path.resolve(__dirname, dir)
+const resolve = (dir) => path.resolve(__dirname, dir);
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
-    main: resolve('src/index.js')
+    main: resolve('src/index.js'),
   },
   output: {
     /**
@@ -22,17 +22,17 @@ module.exports = {
      */
     filename: 'js/[name].js',
     path: resolve('dist'),
-    publicPath: '/'
-    /*设定url可以从哪个路径获取path: resolve('dist')所指定的dist这个磁盘目录的内容，
-    如果跟devServer.static为directory提供的路径重名，直接覆盖掉static的，会让static的directory没法访问了*/
+    publicPath: '/',
+    /* 设定url可以从哪个路径获取path: resolve('dist')所指定的dist这个磁盘目录的内容，
+    如果跟devServer.static为directory提供的路径重名，直接覆盖掉static的，会让static的directory没法访问了 */
   },
   devServer: {
     static: {
-      //其实这个定义不要也行！！！因为其实是output的publicPath决定dist的访问
-      directory: resolve('img'), //告诉服务器从哪里提供内容
-      publicPath: '/abc/' //告诉服务器在哪个 URL 上提供 static.directory 的内容
+      // 其实这个定义不要也行！！！因为其实是output的publicPath决定dist的访问
+      directory: resolve('img'), // 告诉服务器从哪里提供内容
+      publicPath: '/abc/', // 告诉服务器在哪个 URL 上提供 static.directory 的内容
     },
-    port: 8000
+    port: 8000,
   },
   module: {
     rules: [
@@ -41,11 +41,11 @@ module.exports = {
         use: {
           loader: 'eslint-loader',
           options: {
-            enforce: 'pre', //设置匹配js文件时，先走这个loader（这里还有babel-loader，所以要配置这个）
-            include: resolve('src'), //只校验自己写的js
-            exclude: /node_modules/ //不校验node_modules文件
-          }
-        }
+            enforce: 'pre', // 设置匹配js文件时，先走这个loader（这里还有babel-loader，所以要配置这个）
+            include: resolve('src'), // 只校验自己写的js
+            exclude: /node_modules/, // 不校验node_modules文件
+          },
+        },
       },
       /**
        * 使用'babel-loader'配合选项预设@babel/preset-env来转译ES6、ES7高级语法
@@ -67,12 +67,12 @@ module.exports = {
                   corejs: false,
                   helpers: true,
                   regenerator: true,
-                  useESModules: true
-                }
-              ]
-            ]
-          }
-        }
+                  useESModules: true,
+                },
+              ],
+            ],
+          },
+        },
       },
       /**
        * 为了浏览器的兼容性，有时候，我们必须加入-webkit,-ms,-o,-moz这些前缀
@@ -83,11 +83,11 @@ module.exports = {
        */
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(jpg|png|jpeg|gif|svg|webep)$/,
@@ -97,11 +97,11 @@ module.exports = {
             name: '[name].[ext]',
             outputPath: 'img/', // 放到output的path目录下的什么地方，这里就是放到output的path（这里是dist）下的img下
             publicPath: '/img', // 指定图片的访问url，必须以output的publicPath为基准，最起码output中的publicPath有的这也要有
-            limit: 7000 // 小于7k的图片全部变base64内嵌
-          }
-        }
-      }
-    ]
+            limit: 7000, // 小于7k的图片全部变base64内嵌
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -109,22 +109,22 @@ module.exports = {
       template: resolve('public/index.html'),
       filename: 'index.html',
       hash: true,
-      inject: 'body'
+      inject: 'body',
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css', // name是代码块chunk的名字
-      chunkFilename: 'css/[id].css' // 在异步加载的时候使用的
-    })
+      chunkFilename: 'css/[id].css', // 在异步加载的时候使用的
+    }),
   ],
   optimization: {
-    minimize: false, //true为在开发环境下启用 CSS 优化
+    minimize: false, // true为在开发环境下启用 CSS 优化
     minimizer: [
       new TerserPlugin({
-        parallel: true // 开启并行打包
+        parallel: true, // 开启并行打包
       }),
       new CssMinimizerPlugin({
-        parallel: true
-      })
-    ]
-  }
-}
+        parallel: true,
+      }),
+    ],
+  },
+};

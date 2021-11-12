@@ -1,0 +1,10 @@
+/node_modules/
+/dist/
+/img/
+/public/
+postcss.config.js
+webpack.config.js
+package.json
+yarn.lock
+READEME.md
+.gitignore
