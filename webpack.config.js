@@ -4,6 +4,8 @@ const resolve = (dir) => path.resolve(__dirname, dir)
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
   mode: 'development',
   entry: {
@@ -28,7 +30,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(jpg|png|jpeg|gif|svg|webep)$/,
@@ -51,6 +53,10 @@ module.exports = {
       filename: 'index.html',
       hash: true,
       inject: 'body'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css', // name是代码块chunk的名字
+      chunkFilename: 'css/[id].css' // 在异步加载的时候使用的
     })
   ]
 }

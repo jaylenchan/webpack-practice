@@ -1,0 +1,13 @@
+/*!***********************************************************************************!*\
+  !*** css ./node_modules/_css-loader@6.5.1@css-loader/dist/cjs.js!./src/index.css ***!
+  \***********************************************************************************/
+#root {
+  width: 200px;
+  height: 200px;
+  font-size: 32px;
+  font-weight: 700;
+  color: red;
+  background-size: cover;
+  background-image: url(/03affd7dcab258a52dd3.png);
+}
+
