@@ -1,5 +1,9 @@
 #root {
+  width: 200px;
+  height: 200px;
   font-size: 32px;
   font-weight: 700;
   color: red;
+  background-size: cover;
+  background-image: url(./logo.png);
 }
