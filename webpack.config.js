@@ -5,6 +5,7 @@ const resolve = (dir) => path.resolve(__dirname, dir)
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -58,5 +59,13 @@ module.exports = {
       filename: 'css/[name].css', // name是代码块chunk的名字
       chunkFilename: 'css/[id].css' // 在异步加载的时候使用的
     })
-  ]
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true, // 开启并行打包
+      })
+    ]
+  }
 }
