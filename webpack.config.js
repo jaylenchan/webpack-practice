@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -61,10 +62,13 @@ module.exports = {
     })
   ],
   optimization: {
-    minimize: true,
+    minimize: true, //在开发环境下启用 CSS 优化
     minimizer: [
       new TerserPlugin({
-        parallel: true, // 开启并行打包
+        parallel: true // 开启并行打包
+      }),
+      new CssMinimizerPlugin({
+        parallel: true
       })
     ]
   }
