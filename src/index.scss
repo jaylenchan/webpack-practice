@@ -1,3 +1,8 @@
+@font-face {
+  src: url('./fonts/HabanoST.otf') format('trueType');
+  font-family: 'HabanoST';
+}
+
 #root {
   &::before {
     display: block;
@@ -5,5 +10,6 @@
     width: 100px;
     height: 100px;
     background-color: rgb(211, 122, 13);
+    font-family: 'HabanoST';
   }
 }
