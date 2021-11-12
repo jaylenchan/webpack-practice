@@ -14,5 +14,13 @@ module.exports = {
   devServer: {
     static: resolve('dist'),
     port: 8000
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   }
 }
