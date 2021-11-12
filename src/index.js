@@ -1,4 +1,5 @@
 import './index.css'
+import './index.scss'
 console.log('chapter1')
 document.write('chapter1:devserver')
 import avatar from './avatar.jpeg'
