@@ -2,6 +2,7 @@ const path = require('path')
 
 const resolve = (dir) => path.resolve(__dirname, dir)
 
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: {
@@ -22,5 +23,13 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: resolve('public/index.html'),
+      filename: 'index.html',
+      hash: true,
+      inject: 'body'
+    })
+  ]
 }
