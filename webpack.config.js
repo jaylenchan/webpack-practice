@@ -36,9 +36,16 @@ module.exports = {
   },
   module: {
     rules: [
+      /**
+       * 为了浏览器的兼容性，有时候，我们必须加入-webkit,-ms,-o,-moz这些前缀
+       * Trident内核：代表IE浏览器，前缀:-ms
+       * Gecko内核：代表Firefox浏览器，前缀：-moz
+       * Presto内核：代表Opera浏览器，前缀：-o
+       * Webkit内核：代表Chrome和Safari浏览器，前缀：-webkit
+       */
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
       {
         test: /\.scss$/,
