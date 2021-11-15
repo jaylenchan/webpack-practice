@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -137,6 +138,9 @@ module.exports = {
           global: '$' // 从全局对象的哪个属性（全局变量）获取jQuery
         }
       ]
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: resolve('src/static'), to: resolve('dist/static') }]
     })
   ],
   optimization: {
