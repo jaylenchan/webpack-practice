@@ -145,6 +145,10 @@ module.exports = {
             publicPath: '/fonts'
           }
         }
+      },
+      {
+        test: /cmathLoader\.js/,
+        use: 'cmathLoader'
       }
     ]
   },
@@ -210,5 +214,9 @@ module.exports = {
      */
     modules: ['node_modules', 'myModules'],
     mainFiles: ['index', 'main'] // 解析一个模块的时候，默认找index，找不到就找main名字的main.js
+  },
+  // resolveLoaders用来定制webpack查找loader的规则
+  resolveLoader: {
+    modules: ['node_modules', 'myLoaders'] // 指定webpack优先找node_modules下的需要的loader，找不到就去myLoaders找
   }
 }

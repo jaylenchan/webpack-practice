@@ -4,6 +4,7 @@ import avatar from './assets/images/avatar.jpeg'
 import testExtensions from './extensions'
 import logo from '@/assets/images/logo.png'
 import cmath from 'cmath'
+import './cmathLoader'
 // console.log('chapter1');
 document.write('chapter1:devserver')
 const img = new Image()
