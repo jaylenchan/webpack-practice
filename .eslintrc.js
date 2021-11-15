@@ -21,6 +21,7 @@ module.exports = {
     'import/no-unresolved': 0,
     'no-multiple-empty-lines': 0,
     'import/order': 0,
-    'no-undef': 0
+    'no-undef': 0,
+    'no-unused-vars': 0
   }
 }

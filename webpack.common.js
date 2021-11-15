@@ -10,7 +10,8 @@ const { IgnorePlugin } = require('webpack')
 
 module.exports = {
   entry: {
-    main: resolve('src/index.js')
+    main: resolve('src/index.js'),
+    login: resolve('src/login.js')
   },
   output: {
     /**
@@ -114,8 +115,16 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: resolve('public/index.html'),
-      filename: 'index.html',
+      filename: 'main.html',
       hash: true,
+      chunks: ['main'],
+      inject: 'body'
+    }),
+    new HtmlWebpackPlugin({
+      template: resolve('public/index.html'),
+      filename: 'login.html',
+      hash: true,
+      chunks: ['login'],
       inject: 'body'
     }),
     new MiniCssExtractPlugin({
