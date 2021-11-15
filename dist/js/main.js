@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./myModules/cmath.js":
-/*!****************************!*\
-  !*** ./myModules/cmath.js ***!
-  \****************************/
+/***/ "./myModules/cmath/main.js":
+/*!*********************************!*\
+  !*** ./myModules/cmath/main.js ***!
+  \*********************************/
 /***/ ((module) => {
 
-eval("module.exports = function () {\n  console.log('test my cmath module');\n};\n\n//# sourceURL=webpack:///./myModules/cmath.js?");
+eval("module.exports = function () {\n  console.log('test my cmath module');\n};\n\n//# sourceURL=webpack:///./myModules/cmath/main.js?");
 
 /***/ }),
 
@@ -37,7 +37,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_styles_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/styles/index.css */ \"./src/assets/styles/index.css\");\n/* harmony import */ var _assets_styles_index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/styles/index.scss */ \"./src/assets/styles/index.scss\");\n/* harmony import */ var _assets_images_avatar_jpeg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/images/avatar.jpeg */ \"./src/assets/images/avatar.jpeg\");\n/* harmony import */ var _extensions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extensions */ \"./src/extensions.js\");\n/* harmony import */ var _assets_images_logo_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/assets/images/logo.png */ \"./src/assets/images/logo.png\");\n/* harmony import */ var cmath__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! cmath */ \"./myModules/cmath.js\");\n/* harmony import */ var cmath__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(cmath__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n // console.log('chapter1');\n\ndocument.write('chapter1:devserver');\nvar img = new Image();\nimg.src = _assets_images_avatar_jpeg__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\ndocument.body.appendChild(img); // console.log('img=>', avatar);\n\nconsole.log('testExtensions=>', _extensions__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\nconsole.log('logo=>', _assets_images_logo_png__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\ncmath__WEBPACK_IMPORTED_MODULE_5___default()();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_styles_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/styles/index.css */ \"./src/assets/styles/index.css\");\n/* harmony import */ var _assets_styles_index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/styles/index.scss */ \"./src/assets/styles/index.scss\");\n/* harmony import */ var _assets_images_avatar_jpeg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/images/avatar.jpeg */ \"./src/assets/images/avatar.jpeg\");\n/* harmony import */ var _extensions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extensions */ \"./src/extensions.js\");\n/* harmony import */ var _assets_images_logo_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/assets/images/logo.png */ \"./src/assets/images/logo.png\");\n/* harmony import */ var cmath__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! cmath */ \"./myModules/cmath/main.js\");\n/* harmony import */ var cmath__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(cmath__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n // console.log('chapter1');\n\ndocument.write('chapter1:devserver');\nvar img = new Image();\nimg.src = _assets_images_avatar_jpeg__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\ndocument.body.appendChild(img); // console.log('img=>', avatar);\n\nconsole.log('testExtensions=>', _extensions__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\nconsole.log('logo=>', _assets_images_logo_png__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\ncmath__WEBPACK_IMPORTED_MODULE_5___default()();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

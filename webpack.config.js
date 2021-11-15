@@ -208,6 +208,7 @@ module.exports = {
      * 如果找不到就拉倒报错，不用接着往下面找，可以减少查找路径，提高查找速度
      * 另外，如果其他磁盘目录下放着自己写的模块，也可以写进来，webpack就会查找自定义模块的内容
      */
-    modules: ['node_modules', 'myModules']
+    modules: ['node_modules', 'myModules'],
+    mainFiles: ['index', 'main'] // 解析一个模块的时候，默认找index，找不到就找main名字的main.js
   }
 }
