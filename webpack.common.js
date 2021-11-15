@@ -8,6 +8,7 @@ const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { IgnorePlugin } = require('webpack')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -153,7 +154,8 @@ module.exports = {
       resourceRegExp: /^\.\/locale$/,
       contextRegExp: /moment$/
     }),
-    new FriendlyErrorsWebpackPlugin()
+    new FriendlyErrorsWebpackPlugin(),
+    new SpeedMeasurePlugin()
   ],
 
   externals: {
