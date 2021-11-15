@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { IgnorePlugin } = require('webpack')
 
 module.exports = {
   entry: {
@@ -134,6 +135,13 @@ module.exports = {
     // }),
     new CopyWebpackPlugin({
       patterns: [{ from: resolve('src/static'), to: resolve('dist/static') }]
+    }),
+    new IgnorePlugin({
+      /**
+       * 使用IgnorePlugin忽略掉moment模块的locale语言包
+       */
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/
     })
   ],
 

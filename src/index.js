@@ -5,6 +5,7 @@ import testExtensions from './extensions'
 import logo from '@/assets/images/logo.png'
 import cmath from 'cmath'
 import './cmathLoader'
+import moment from  'moment'
 // console.log('chapter1');
 document.write('chapter1:devserver')
 const img = new Image()
