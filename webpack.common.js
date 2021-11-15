@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { IgnorePlugin } = require('webpack')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -151,7 +152,8 @@ module.exports = {
        */
       resourceRegExp: /^\.\/locale$/,
       contextRegExp: /moment$/
-    })
+    }),
+    new FriendlyErrorsWebpackPlugin()
   ],
 
   externals: {
@@ -182,5 +184,6 @@ module.exports = {
   // resolveLoaders用来定制webpack查找loader的规则
   resolveLoader: {
     modules: ['node_modules', 'myLoaders'] // 指定webpack优先找node_modules下的需要的loader，找不到就去myLoaders找
-  }
+  },
+  stats: 'minimal'
 }
