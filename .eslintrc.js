@@ -20,6 +20,7 @@ module.exports = {
     'func-names': 0,
     'import/no-unresolved': 0,
     'no-multiple-empty-lines': 0,
-    'import/order': 0
+    'import/order': 0,
+    'no-undef': 0
   }
 }

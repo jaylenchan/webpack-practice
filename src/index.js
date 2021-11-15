@@ -14,3 +14,5 @@ document.body.appendChild(img)
 console.log('testExtensions=>', testExtensions)
 console.log('logo=>', logo)
 cmath()
+
+console.log('PRODUCTION=>', PRODUCTION)
