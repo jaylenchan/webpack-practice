@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 
 module.exports = {
   mode: 'development',
@@ -125,6 +126,17 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].css', // name是代码块chunk的名字
       chunkFilename: 'css/[id].css' // 在异步加载的时候使用的
+    }),
+    // 修改1：去除html中的jquery手动引入cdn；
+    // 修改2：去除webpack配置文件中的externals选项，添加如下插件并配置
+    new HtmlWebpackExternalsPlugin({
+      externals: [
+        {
+          module: 'jquery', // 包名
+          entry: 'http://code.jquery.com/jquery-migrate-1.2.1.min.js', // cdn名
+          global: '$' // 从全局对象的哪个属性（全局变量）获取jQuery
+        }
+      ]
     })
   ],
   optimization: {
@@ -137,14 +149,14 @@ module.exports = {
         parallel: true
       })
     ]
-  },
-  externals: {
-    /**
-     * 当我们再模块再次import $ from 'jquery'的时候，webpack构建不会再打包jquery
-     * 而是找到window.$，将这个值赋值给import $的$这个变量。
-     * 不过这种方式也是有缺陷的：使用的时候必须手动在html中引入cdn，然后在这里配置externals
-     * 解决的方式是：使用html-webpack-external-plugin
-     */
-    jquery: '$' // key是包名，值是包名的全局变量名
   }
+  // externals: {
+  //   /**
+  //    * 当我们再模块再次import $ from 'jquery'的时候，webpack构建不会再打包jquery
+  //    * 而是找到window.$，将这个值赋值给import $的$这个变量。
+  //    * 不过这种方式也是有缺陷的：使用的时候必须手动在html中引入cdn，然后在这里配置externals
+  //    * 解决的方式是：使用html-webpack-external-plugin
+  //    */
+  //   jquery: '$' // key是包名，值是包名的全局变量名
+  // }
 }
