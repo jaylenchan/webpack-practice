@@ -137,5 +137,14 @@ module.exports = {
         parallel: true
       })
     ]
+  },
+  externals: {
+    /**
+     * 当我们再模块再次import $ from 'jquery'的时候，webpack构建不会再打包jquery
+     * 而是找到window.$，将这个值赋值给import $的$这个变量。
+     * 不过这种方式也是有缺陷的：使用的时候必须手动在html中引入cdn，然后在这里配置externals
+     * 解决的方式是：使用html-webpack-external-plugin
+     */
+    jquery: '$' // key是包名，值是包名的全局变量名
   }
 }
