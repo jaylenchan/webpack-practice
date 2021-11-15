@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { IgnorePlugin } = require('webpack')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: {
@@ -155,7 +156,11 @@ module.exports = {
       contextRegExp: /moment$/
     }),
     new FriendlyErrorsWebpackPlugin(),
-    new SpeedMeasurePlugin()
+    new SpeedMeasurePlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true
+    })
   ],
 
   externals: {

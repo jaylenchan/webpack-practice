@@ -1,0 +1,45 @@
+args.mode=> production
+cmathloaders => console.log('测试cmathLoader')
+
+ DONE  Compiled successfully in 3876ms下午6:21:09
+
+
+
+ SMP  ⏱  
+General output time took 3.88 secs
+
+ SMP  ⏱  Loaders
+eslint-loader, and 
+babel-loader took 2.9 secs
+  module count = 9
+mini-css-extract-plugin, and 
+css-loader, and 
+postcss-loader took 1.5 secs
+  module count = 1
+mini-css-extract-plugin, and 
+css-loader, and 
+sass-loader took 1.49 secs
+  module count = 1
+css-loader, and 
+postcss-loader took 0.755 secs
+  module count = 1
+file-loader took 0.417 secs
+  module count = 1
+css-loader, and 
+sass-loader took 0.09 secs
+  module count = 1
+url-loader took 0.045 secs
+  module count = 3
+eslint-loader, and 
+babel-loader, and 
+/Users/chen/Documents/study/engineering/webpack-practice/myLoaders/cmathLoader.js took 0.031 secs
+  module count = 1
+modules with no loaders took 0.012 secs
+  module count = 1
+html-webpack-plugin took 0.012 secs
+  module count = 1
+
+
+
+Webpack Bundle Analyzer saved stats file to /Users/chen/Documents/study/engineering/webpack-practice/dist/stats.json
+{"logging":{"webpack.Compilation":{"entries":[],"filteredEntries":35,"debug":false},"webpack.Compiler":{"entries":[],"filteredEntries":9,"debug":false},"webpack.Compilation.ModuleProfile":{"entries":[{"time":1636971669236,"type":"warn","args":[" |  | 999 ms (parallelism 1.9) build modules > ./src/index.js"],"message":" |  | 999 ms (parallelism 1.9) build modules > ./src/index.js"},{"time":1636971669236,"type":"warn","args":[" |  | 792 ms (parallelism 2) build modules > ./src/login.js"],"message":" |  | 792 ms (parallelism 2) build modules > ./src/login.js"},{"time":1636971669236,"type":"warn","args":[" | 1795 ms build modules > 8 x javascript/auto with ./node_modules/eslint-loader/dist/cjs.js??ruleSet[1].rules[0].use!./node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use"],"message":" | 1795 ms build modules > 8 x javascript/auto with ./node_modules/eslint-loader/dist/cjs.js??ruleSet[1].rules[0].use!./node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use"},{"time":1636971669237,"type":"warn","args":["2890 ms build modules"],"message":"2890 ms build modules"}],"filteredEntries":20,"debug":false},"webpack.FlagDependencyExportsPlugin":{"entries":[],"filteredEntries":4,"debug":false},"webpack.InnerGraphPlugin":{"entries":[],"filteredEntries":1,"debug":false},"webpack.SideEffectsFlagPlugin":{"entries":[],"filteredEntries":1,"debug":false},"webpack.FlagDependencyUsagePlugin":{"entries":[],"filteredEntries":2,"debug":false},"webpack.buildChunkGraph":{"entries":[],"filteredEntries":9,"debug":false},"webpack.SplitChunksPlugin":{"entries":[],"filteredEntries":4,"debug":false},"webpack.ModuleConcatenationPlugin":{"entries":[],"filteredEntries":8,"debug":false},"copy-webpack-plugin":{"entries":[],"filteredEntries":22,"debug":false},"webpack.FileSystemInfo":{"entries":[],"filteredEntries":13,"debug":false}},"version":"5.64.0","time":3876,"assetsByChunkName":{"main":["css/main.css","js/main.js"],"login":["js/login.js"]},"filteredAssets":10,"filteredModules":35,"errors":[],"errorsCount":0,"warnings":[],"warningsCount":0}
