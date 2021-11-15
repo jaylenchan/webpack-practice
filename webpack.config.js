@@ -162,15 +162,15 @@ module.exports = {
     }),
     // 修改1：去除html中的jquery手动引入cdn；
     // 修改2：去除webpack配置文件中的externals选项，添加如下插件并配置
-    new HtmlWebpackExternalsPlugin({
-      externals: [
-        {
-          module: 'jquery', // 包名
-          entry: 'http://code.jquery.com/jquery-migrate-1.2.1.min.js', // cdn名
-          global: '$' // 从全局对象的哪个属性（全局变量）获取jQuery
-        }
-      ]
-    }),
+    // new HtmlWebpackExternalsPlugin({
+    //   externals: [
+    //     {
+    //       module: 'jquery', // 包名
+    //       entry: 'http://code.jquery.com/jquery-migrate-1.2.1.min.js', // cdn名
+    //       global: '$' // 从全局对象的哪个属性（全局变量）获取jQuery
+    //     }
+    //   ]
+    // }),
     new CopyWebpackPlugin({
       patterns: [{ from: resolve('src/static'), to: resolve('dist/static') }]
     })
@@ -185,14 +185,18 @@ module.exports = {
         parallel: true
       })
     ]
+  },
+  externals: {
+    /**
+     * 当我们再模块再次import $ from 'jquery'的时候，webpack构建不会再打包jquery
+     * 而是找到window.$，将这个值赋值给import $的$这个变量。
+     * 不过这种方式也是有缺陷的：使用的时候必须手动在html中引入cdn，然后在这里配置externals
+     * 解决的方式是：使用html-webpack-external-plugin
+     */
+    jquery: 'jQuery' // key是包名，值是包名的全局变量名
+  },
+  // resolve用来定制webpack查找文件的规则
+  resolve: {
+    extensions: ['.js', '.json', '.css', '.scss']
   }
-  // externals: {
-  //   /**
-  //    * 当我们再模块再次import $ from 'jquery'的时候，webpack构建不会再打包jquery
-  //    * 而是找到window.$，将这个值赋值给import $的$这个变量。
-  //    * 不过这种方式也是有缺陷的：使用的时候必须手动在html中引入cdn，然后在这里配置externals
-  //    * 解决的方式是：使用html-webpack-external-plugin
-  //    */
-  //   jquery: '$' // key是包名，值是包名的全局变量名
-  // }
 }
