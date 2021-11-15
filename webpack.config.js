@@ -34,7 +34,21 @@ module.exports = {
       directory: resolve('img'), // 告诉服务器从哪里提供内容
       publicPath: '/abc/' // 告诉服务器在哪个 URL 上提供 static.directory 的内容
     },
-    port: 8000
+    port: 8000,
+    proxy: {
+      /**
+       * 工作流程：webpack devserver接到浏览器发来的http://localhost:8000/api/users的请求
+       * webpack devserver获取/api/users路径，并将其重写，将/api替换成空，最终的重写路径是/users
+       * 然后webpack devserver将这个路径发送给3000应用服务器，最终的请求是http://localhost:3000/users
+       * 3000应用服务器发送给webpack devserver响应的数据之后，webpack devserver再将其发送回给浏览器
+       */
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
   module: {
     rules: [
