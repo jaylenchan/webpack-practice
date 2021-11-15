@@ -17,6 +17,9 @@ module.exports = {
     'no-var': 0,
     'eol-last': 0,
     'no-console': 0,
-    'func-names': 0
+    'func-names': 0,
+    'import/no-unresolved': 0,
+    'no-multiple-empty-lines': 0,
+    'import/order': 0
   }
 }

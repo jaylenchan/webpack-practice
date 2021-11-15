@@ -23,16 +23,16 @@ module.exports = {
      * 在url-loader的options.outputPath指定img目录
      */
     filename: 'js/[name].js',
-    path: resolve('dist'),
-    publicPath: '/'
+    path: resolve('dist'), // 实际打包成dist后这份文件如果在本地利用vscode自启动的server会部署成/dist才能访问到，所以publicPath要配置成/dist/
+    publicPath: '/dist'
     /* 设定url可以从哪个路径获取path: resolve('dist')所指定的dist这个磁盘目录的内容，
     如果跟devServer.static为directory提供的路径重名，直接覆盖掉static的，会让static的directory没法访问了 */
   },
   devServer: {
     static: {
       // 其实这个定义不要也行！！！因为其实是output的publicPath决定dist的访问
-      directory: resolve('img'), // 告诉服务器从哪里提供内容
-      publicPath: '/abc/' // 告诉服务器在哪个 URL 上提供 static.directory 的内容
+      directory: resolve('dist'), // 告诉服务器从哪里提供内容
+      publicPath: '/' // 告诉服务器在哪个 URL 上提供 static.directory 的内容
     },
     port: 8000,
     // proxy: {
@@ -197,6 +197,17 @@ module.exports = {
   },
   // resolve用来定制webpack查找文件的规则
   resolve: {
-    extensions: ['.js', '.json', '.css', '.scss']
+    extensions: ['.js', '.json', '.css', '.scss'],
+    alias: {
+      // 指定别名，可以方便查找文件
+      // 指定别名，还可以避免引入错误的文件
+      '@': resolve('src')
+    },
+    /**
+     * modules的作用是告诉webpack指定去哪里查找依赖，如下，就是告诉webpack去当前目录的node_modules中查找
+     * 如果找不到就拉倒报错，不用接着往下面找，可以减少查找路径，提高查找速度
+     * 另外，如果其他磁盘目录下放着自己写的模块，也可以写进来，webpack就会查找自定义模块的内容
+     */
+    modules: ['node_modules', 'myModules']
   }
 }
